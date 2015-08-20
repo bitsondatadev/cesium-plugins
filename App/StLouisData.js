@@ -71,6 +71,7 @@ define(['jquery',
                         success: function(csvData)
                         {
                             var csvData = $.csv.toArrays(csvData);
+                            var headers = csvData[0];
                             
                             //Process the data and write data to .asc file
                             

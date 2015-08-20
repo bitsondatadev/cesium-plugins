@@ -98,6 +98,7 @@
                 html += "</li>\n";
             }
             html += "</ul>\n</div>\n";
+            html += "<div class='" + elementId + "-footer'> Map colors based on <a href='http://colorbrewer2.org/' target='_blank'>ColorBrewer</a>.</div>\n"
 
             $("#" + elementId).html(html);
             $("#" + elementId).css({
@@ -132,6 +133,15 @@
             });
 
             $("#" + elementId + " ul." + elementId + "-labels li span").css({
+                "display": "block",
+                "float": "left",
+                "height": "22px",
+                "width": "30px",
+                "margin-right": "5px",
+                "margin-left": "0",
+                "border": "1px solid #999"
+            });
+            $("#" + elementId + " ul." + elementId + "-footer").css({
                 "display": "block",
                 "float": "left",
                 "height": "22px",
