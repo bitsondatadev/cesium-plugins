@@ -10,6 +10,7 @@ define(['jquery',
         },
         defined: Cesium.defined,
         defaultValue: Cesium.defaultValue,
-        freezeObject: Cesium.freezeObject
+        freezeObject: Cesium.freezeObject,
+        DeveloperError: Cesium.DeveloperError
     };
 });
