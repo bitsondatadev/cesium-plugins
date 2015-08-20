@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="Lib/Cesium/|Lib/Cesium/ThirdParty/Workers/|Core/|Lib/Cesium/Workers/|App/controllers/|Lib/|App/|Util/|App/models/" kind="src" path=""/>
+	<classpathentry excluding="controllers/|models/" kind="src" path="App"/>
+	<classpathentry kind="src" path="App/controllers"/>
+	<classpathentry kind="src" path="App/models"/>
+	<classpathentry kind="src" path="Core"/>
+	<classpathentry excluding="Cesium/|Cesium/ThirdParty/Workers/|Cesium/Workers/" kind="src" path="Lib"/>
+	<classpathentry excluding="ThirdParty/Workers/|Workers/" kind="src" path="Lib/Cesium"/>
+	<classpathentry kind="src" path="Lib/Cesium/ThirdParty/Workers"/>
+	<classpathentry kind="src" path="Lib/Cesium/Workers"/>
+	<classpathentry kind="src" path="Util"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
