@@ -1,10 +1,12 @@
 define(['jquery',
+        'jquery.csv',
         'Util/Util'
 ],function ($,
+            jqueryCsv,
             Util) {
     "use strict";
-    require('jquery.csv');
-    
+
+    jqueryCsv = $.csv;
     function loadASCIIRasterData(data) {
         var gridData;
         var header;

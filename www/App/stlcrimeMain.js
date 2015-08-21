@@ -1,7 +1,7 @@
 define(function (require) {
     /*Third Party Libraries*/
     var $ = require('jquery');
-    require('jquery.csv');
+    require(['jquery.csv']);
     var Cesium = require('Cesium');
     
     
