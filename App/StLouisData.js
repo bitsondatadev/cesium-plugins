@@ -33,57 +33,84 @@ define(['jquery',
         };
     } 
     
+    
+    
     /**
      * StLouisData
      * 
      * This class is responsible for pulling out the csv data and transforming it into ESRI ASCII grid data.
      * 
-     * XUR 759822
-     * YUR 4299991
-     * Xdiff 46519
-     * Ydiff 41422 
      * */
     var StLouisData = function(options){
         options = Util.defined(options) ? options : Util.defaultValue.EMPTY_OBJECT;
-        this.numCols = Util.defaultValue(options.numCols, 52);
-        this.numRows = Util.defaultValue(options.numRows, 46);
-        this.xLLCorner = Util.defaultValue(options.xLLCorner, 713303);
-        this.yLLCorner = Util.defaultValue(options.yLLCorner, 4258569);
-        this.cellSize = Util.defaultValue(options.cellSize, 900);
+        this.numCols = Util.defaultValue(options.numCols, 61);
+        this.numRows = Util.defaultValue(options.numRows, 56);
+        this.xLLCorner = Util.defaultValue(options.xLLCorner, 795861.82);
+        this.yLLCorner = Util.defaultValue(options.yLLCorner, 954479.69);
+        this.cellSize = Util.defaultValue(options.cellSize, 2950);
         this.noDataValue = Util.defaultValue(options.noDataValue, -9999);
+        
+        this.xURCorner = this.xLLCorner + (this.numCols * this.cellSize);
+        this.yURCorner = this.yLLCorner + (this.numRows * this.cellSize);
 
-        this.getSummaryData = function(cssURL){
+        
+        this.getSummaryData = function(cssURL, callback, scene){
             var filePath = cssURL.substring(0, cssURL.lastIndexOf("/") + 1);
             var fileName = cssURL.substring(cssURL.lastIndexOf("/") + 1, cssURL.lastIndexOf('.'));
             var ascUrl = filePath + fileName + ".asc";
+            
+            var numRows = this.numRows;
+            var numCols = this.numCols;
+            var noDataValue = this.noDataValue;
+            var maxX = this.xURCorner;
+            var minX = this.xLLCorner;
+            var maxY = this.yURCorner;
+            var minY = this.yLLCorner;
+            
+            var gridData;
+                
             $.ajax({
                 url:ascUrl,
                 type:'GET',
+                async: false,
                 error: function()
                 {
                     $.ajax({
                         url:cssURL,
                         type:'GET',
+                        async: false,
                         error: function()
                         {
                             throw new Util.DeveloperError('csv file does not exist.');
                         },
                         success: function(csvData)
                         {
+                            
                             var csvData = $.csv.toArrays(csvData);
                             var headers = csvData[0];
+                            var xIndex = headers.indexOf("XCoord");
+                            var yIndex = headers.indexOf("YCoord");
+                            gridData = Util.createMatrix([numRows,numCols], 0);
+
+                            for(var i=1; i<=csvData.length - 1;i++){
+                                var x = parseInt(csvData[i][xIndex]);
+                                var y = parseInt(csvData[i][yIndex]);
+                                if(x!==0 && y!==0){
+                                    gridData[Math.floor(((x - minX) / (maxX - minX)) * numCols)][Math.floor(((maxY - y) / (maxY - minY)) * numRows)] += 1;
+                                }
+                                
+                            }
                             
-                            //Process the data and write data to .asc file
-                            
-                            //return gridData
+                            //write data to .asc file
+
+                            callback(gridData, scene);
                         }
                     });
                 },
                 success: function(asciiData)
                 {
                     var packet = loadASCIIRasterData(asciiData);
-                    soilMap.fuzzyGridData.push(packet.gridData);
-                    header = packet.header;
+                    var header = packet.header;
                     this.numCols = header.NCOLS;
                     this.numRows = header.NROWS;
                     this.xLLCorner = header.XLLCORNER;
@@ -91,14 +118,14 @@ define(['jquery',
                     this.cellSize = header.CELLSIZE;
                     this.noDataValue = header.NODATA_VALUE;
                     
-                    //return gridData (this can be a function since it's called after csv) Later a class
+                    callback(packet.gridData, scene);
                 }
             });
         };
-        
-
 
     };
+    
+
     
     
     return StLouisData;

@@ -31,7 +31,11 @@ define(function(require, exports, module) {
              ],[
                  "EPSG:26919",
                  "+proj=utm +zone=19 +ellps=GRS80 +datum=NAD83 +units=m +no_defs"
+             ],[
+                 "ESRI:102696",
+                 "+proj=tmerc +lat_0=35.83333333333334 +lon_0=-90.5 +k=0.9999333333333333 +x_0=250000 +y_0=0 +ellps=GRS80 +datum=NAD83 +to_meter=0.3048006096012192 +no_defs"
              ]
+                 
      ]);
     
     return projLib;

@@ -57,9 +57,7 @@
             if (value >= this.maxValue) {
                 return this._colorScheme[this._numClasses - 1];
             }
-
-            colorIndex = Math.round((value - this.minValue) / this._scale);
-
+            var colorIndex = Math.round((value - this.minValue) / this._scale);
             if (colorIndex < 0) {
                 colorIndex = 0;
             }
@@ -97,8 +95,8 @@
                 }
                 html += "</li>\n";
             }
-            html += "</ul>\n</div>\n";
-            html += "<div class='" + elementId + "-footer'> Map colors based on <a href='http://colorbrewer2.org/' target='_blank'>ColorBrewer</a>.</div>\n"
+            html += "</ul>\n";
+            html += "<div class='" + elementId + "-footer'> Color scheme by <a href='http://colorbrewer2.org/' target='_blank'>ColorBrewer</a>.</div>\n</div>\n"
 
             $("#" + elementId).html(html);
             $("#" + elementId).css({
@@ -138,17 +136,14 @@
                 "height": "22px",
                 "width": "30px",
                 "margin-right": "5px",
-                "margin-left": "0",
+                "margin-left": "10px",
                 "border": "1px solid #999"
             });
-            $("#" + elementId + " ul." + elementId + "-footer").css({
-                "display": "block",
-                "float": "left",
+            $("#" + elementId + " ." + elementId + "-footer").css({
+                "clear": "both",
                 "height": "22px",
-                "width": "30px",
                 "margin-right": "5px",
-                "margin-left": "0",
-                "border": "1px solid #999"
+                "margin-left": "5px",
             });
         };
     };
