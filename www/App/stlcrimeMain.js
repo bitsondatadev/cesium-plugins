@@ -60,7 +60,7 @@ define(function (require) {
             maxValue: max,
             alphaValue: 180,
             color: SchemeType.SEQUENTIAL.RED,
-            incremenet: 1,
+            increment: 1,
             precision: 0,
             numClasses: 9
         });
