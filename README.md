@@ -31,3 +31,19 @@ Some things I don't really consider plug-ins but just extras. These I added to t
 
 1. **ColorScheme.js** - A module that helps define "bins" for a color scheme and can identify which color to assign that corresponds to a certain value. It can also automatically generate a legend.
 
+##Bugs:##
+1. I am having trouble getting createMultiColorPolygon to work. So currently it's being done synchronously calling createGeometry.
+
+
+##Future Plans:##
+1. Add in the pack/unpack functions to my geometry class. (This may also be causing some issues with using a web worker)
+
+1. Allow extruded multi-color triangle (1 color per (lat/long))
+
+1. Build off item 2 and do what's being done in ground polygon branch but with multi color triangles so we can render multi-color polygons on a terrain.
+
+1. See about extending functionality to Entity API.
+
+1. I've considered adding a Graph API to specify 3D shapes in space but this my be too complex for a browser.
+
+
