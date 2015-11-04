@@ -91,10 +91,8 @@
         this._colorScheme = [];
         this._numClasses = readColorScheme(this._colorScheme, this._schemeType, this._numClasses, this._alphaValue);
 
-        this._scale = (this.maxValue - this.minValue) / this._numClasses;
-        //step value will be used if the outer boundaries of the range take up two bins.
-        this._stepValue = Util.defined(options.useOuterBoundaries) && options.useOuterBoundaries===true ? this._scale : (this.maxValue - this.minValue) / (this._numClasses - 2);
-
+        this._stepValue = (this.maxValue - this.minValue) / this._numClasses;
+        
         this.getColorIndex = function (value) {
             if (value < this.minValue) {
                 return Cesium.Color.fromBytes(255, 255, 255, this._alphaValue);
