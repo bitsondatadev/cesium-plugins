@@ -1,8 +1,8 @@
-#Cesium-plugins library#
+# Cesium-plugins library
 
-###A library of plugins for the WebGl map engine <a href="https://github.com/AnalyticalGraphicsInc/cesium" target="_blank">Cesium</a>.###
+### A library of plugins for the WebGl map engine <a href="https://github.com/AnalyticalGraphicsInc/cesium" target="_blank">Cesium</a>.
 
-**Cesium version:** 1.12 (released 2015-08-03)
+**Cesium version:** [1.40](https://github.com/AnalyticalGraphicsInc/cesium/releases/tag/1.40)
 
 **Description:** I started working with Cesium in <a href="https://www.purdue.edu/discoverypark/vaccine/" target="_blank">my lab at Purdue</a> as the demand for web applications grew from various projects. Our lab is heavily dependent on spatial visualization and had used OpenGL to do this for many years. We needed a library that took care of the map tile rendering, allowed draw using the WebGL graphics, also give us the flexibility to define our own shaders. I had to either find this library or I would have to do everything from scratch. Enter Cesium. However, I needed a few things the library didn't offer, like drawing multi-color polygons. There are more things I intend to add as we need them in the lab.
 
@@ -16,26 +16,26 @@
 
 See the [License](LICENSE.md).
 
-##Plug-ins:##
+## Plug-ins:
 
 1. MultiColorTriangle - I needed to have the flexibility to specify multi-color polygons and the traditional way for us to do this was to break any rendering task down into small multi-color triangles. Cesium already had all the tools needed to do this it just needed to be written. I don't claim that this is the best way. I've added two examples to show MultiColorTriangle:
-	- <a href="http://web.ics.purdue.edu/~olsenb/cesium/simple.html" target="_blank">Simple.html</a> is a set of 4 triangles created from five verteces to display the nice blending capabilities of WebGL. Kind of the typical "[Hello Triangle examples](http://www.learnopengl.com/#!Getting-Started/Hello-Triangle)" you learn in any GL library. 
+	- <a href="http://brianolsen.us/pages/cesium-plugins/simple.html" target="_blank">Simple.html</a> is a set of 4 triangles created from five verteces to display the nice blending capabilities of WebGL. Kind of the typical "[Hello Triangle examples](http://www.learnopengl.com/#!Getting-Started/Hello-Triangle)" you learn in any GL library. 
 		![](images/simple.png)
-	- <a href="http://web.ics.purdue.edu/~olsenb/cesium/stlcrime.html" target="_blank">stlcrime.html</a> is a slightly more complex example that demonstrates a big reason why you would want to have this plug-in. This in particular is just a count (Heat Map) of the public reported crimes in St. Louis during the month of July 2015. This plug-in can visualize outside of the typical heatmap scenario; I just can't think of anything else to do that was quick and dirty. 
+	- <a href="http://brianolsen.us/pages/cesium-plugins/stlcrime.html" target="_blank">stlcrime.html</a> is a slightly more complex example that demonstrates a big reason why you would want to have this plug-in. This in particular is just a count (Heat Map) of the public reported crimes in St. Louis during the month of July 2015. This plug-in can visualize outside of the typical heatmap scenario; I just can't think of anything else to do that was quick and dirty. 
 		![](images/stlcrime.png)
 
 		- Also, if you're from St. Louis I wan't to note that this is a very biased visualization. I don't take a lot into account and have performed no preprocessing on the raw data. I simply put a +1 where I find a record with spatial information but some records are actually adjustments, meaning they are actually decrementing the count so agian very biased for the time being.
 
-##Extras:##
+## Extras:
 Some things I don't really consider plug-ins but just extras. These I added to the Core folder.
 
 1. **ColorScheme.js** - A module that helps define "bins" for a color scheme and can identify which color to assign that corresponds to a certain value. It can also automatically generate a legend.
 
-##Bugs:##
+## Bugs:
 1. I am having trouble getting createMultiColorPolygon to work. So currently it's being done synchronously calling createGeometry.
 
 
-##Future Plans:##
+## Future Plans:
 1. Add in the pack/unpack functions to my geometry class. (This may also be causing some issues with using a web worker)
 
 1. Allow extruded multi-color triangle (1 color per (lat/long))
