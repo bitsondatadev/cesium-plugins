@@ -1,6 +1,6 @@
 {
   "name": "cesium-mutlicolortriangle-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Multi Color shaded triangle to utilized WebGL's shading renderer capabilities atop of the Cesium library.",
   "main": "common.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "url": "https://github.com/brianolsen87/cesium-plugins/issues"
   },
   "dependencies": {
-    "cesium": "1.40.0",
+    "cesium": "1.41.0",
     "proj4": "2.4.4"
   },
   "homepage": "https://github.com/brianolsen87/cesium-plugins#readme"
