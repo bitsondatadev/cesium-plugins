@@ -2,7 +2,7 @@
 
 ### A library of plugins for the WebGl map engine <a href="https://github.com/AnalyticalGraphicsInc/cesium" target="_blank">Cesium</a>.
 
-**Cesium version:** [1.40](https://github.com/AnalyticalGraphicsInc/cesium/releases/tag/1.40)
+**Cesium version:** [1.41](https://github.com/AnalyticalGraphicsInc/cesium/releases/tag/1.41)
 
 **Description:** I started working with Cesium in <a href="https://www.purdue.edu/discoverypark/vaccine/" target="_blank">my lab at Purdue</a> as the demand for web applications grew from various projects. Our lab is heavily dependent on spatial visualization and had used OpenGL to do this for many years. We needed a library that took care of the map tile rendering, allowed draw using the WebGL graphics, also give us the flexibility to define our own shaders. I had to either find this library or I would have to do everything from scratch. Enter Cesium. However, I needed a few things the library didn't offer, like drawing multi-color polygons. There are more things I intend to add as we need them in the lab.
 
@@ -13,7 +13,6 @@
 - Thanks to the <a href="http://www.slmpd.org/Crimereports.shtml" target="_blank">St. Louis Police Department</a> for their data.
 - Thanks to <a href="http://colorbrewer2.org/" target="_blank">ColorBrewer</a> for the awesome color schemes in JSON.
 - Of course thanks to the <a href="http://cesiumjs.org/" target="_blank">Cesium</a> team for their awesome library.
-
 See the [License](LICENSE.md).
 
 ## Plug-ins:
